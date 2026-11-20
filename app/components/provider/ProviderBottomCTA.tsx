@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function ProviderBottomCTA() {
   return (
-    <section className="bg-[#0A1628] py-20">
+    <section className="bg-[#0B1F5C] py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
           Your next opportunity could be on Nexo.
@@ -12,7 +12,7 @@ export default function ProviderBottomCTA() {
         </p>
         <Link
           href="#"
-          className="inline-flex items-center justify-center bg-[#00C896] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#00A87D] transition-colors text-base"
+          className="inline-flex items-center justify-center bg-[#0E8A7F] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#00A87D] transition-colors text-base"
         >
           Become a Provider
         </Link>

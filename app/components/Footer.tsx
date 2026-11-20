@@ -1,17 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A1628] text-white">
+    <footer className="bg-[#0B1F5C] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="inline-flex items-center gap-1 mb-4">
-              <span className="text-2xl font-bold tracking-tight text-white">
-                nex<span className="text-[#00C896]">o</span>
-              </span>
-              <span className="text-[#00C896] text-lg font-bold">.</span>
+              <Image src="/logo.png" alt="Nexo" width={100} height={100} />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs mt-2">
               Connecting customers with trusted service professionals.

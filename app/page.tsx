@@ -4,6 +4,10 @@ import HeroSection from "./components/HeroSection";
 import ServiceCategories from "./components/ServiceCategories";
 import HowItWorks from "./components/HowItWorks";
 import TwoWays from "./components/TwoWays";
+import TrustFeatures from "./components/TrustFeatures";
+import TryNexo from "./components/TryNexo";
+import ProviderCTA from "./components/ProviderCTA";
+import FAQ from "./components/FAQ";
 
 export default function HomePage() {
   return (
@@ -14,6 +18,10 @@ export default function HomePage() {
         <ServiceCategories />
         <HowItWorks />
         <TwoWays />
+        <TrustFeatures />
+        <TryNexo />
+        <ProviderCTA />
+        <FAQ />
       </main>
       <Footer />
     </>

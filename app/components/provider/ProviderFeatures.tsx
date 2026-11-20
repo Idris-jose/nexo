@@ -1,3 +1,5 @@
+import { FadeIn } from "@/app/components/ui/FadeIn";
+
 const features = [
   {
     icon: (
@@ -43,10 +45,10 @@ const features = [
 
 export default function ProviderFeatures() {
   return (
-    <section className="bg-white py-20 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#F3F5F8] py-20">
+      <FadeIn direction="up"  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A1628] mb-3">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B1F5C] mb-3">
             More opportunities. More control over your work.
           </h2>
           <p className="text-gray-500 text-base max-w-2xl">
@@ -55,18 +57,19 @@ export default function ProviderFeatures() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature) => (
-            <div
+          {features.map((feature,i) => (
+            <FadeIn
+              direction="up" delay={i * 60}
               key={feature.title}
               className="p-6 rounded-xl border border-gray-100 bg-[#F9FAFB] hover:border-[#00C896]/40 hover:shadow-sm transition-all"
             >
-              <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-base font-bold text-[#0A1628] mb-2">{feature.title}</h3>
+              <div className="mb-4 text-[#0E8A7F] bg-[#F4FBFC]">{feature.icon}</div>
+              <h3 className="text-base font-bold text-[#0B1F5C] mb-2">{feature.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">{feature.description}</p>
-            </div>
+            </FadeIn>
           ))}
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }

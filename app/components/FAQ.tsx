@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FadeIn } from "@/app/components/ui/FadeIn";
 
 const faqsLeft = [
   {
@@ -79,52 +80,55 @@ export default function FAQ() {
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-14">
+        <FadeIn direction="up" className="text-left mb-14">
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a2e] mb-4">
             Frequently asked questions
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Everything you need to know about Nexo. Can't find the answer? Contact our support team.
-          </p>
-        </div>
+        </FadeIn>
 
         {/* Two column FAQ */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
-          <div>
-            {faqsLeft.map((faq) => (
-              <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
-            ))}
-          </div>
-          <div>
-            {faqsRight.map((faq) => (
-              <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
-            ))}
-          </div>
+          <FadeIn direction="left" delay={0}>
+            <div>
+              {faqsLeft.map((faq) => (
+                <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+              ))}
+            </div>
+          </FadeIn>
+          <FadeIn direction="right" delay={100}>
+            <div>
+              {faqsRight.map((faq) => (
+                <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+              ))}
+            </div>
+          </FadeIn>
         </div>
 
         {/* Bottom CTA Banner */}
-        <div className="mt-20 bg-[#0A1628] rounded-3xl px-8 py-14 text-center">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            Whatever needs doing, Nexo gets you closer.
-          </h3>
-          <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
-            Join thousands of satisfied clients and professional providers on the platform built for real work.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/browse-providers"
-              className="inline-flex items-center justify-center gap-2 bg-[#00C896] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#00A87D] transition-colors"
-            >
-              Get Started
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white font-semibold px-8 py-4 rounded-xl hover:border-white/60 transition-colors"
-            >
-              Apply as Professional
-            </a>
+        <FadeIn direction="up" delay={200}>
+          <div className="mt-20 bg-[#E3F4F2] rounded-3xl px-8 py-14 text-center">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-[#0B1F5C] mb-4">
+              Whatever needs doing, Nexo gets you closer.
+            </h3>
+            <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
+              Join thousands of satisfied clients and professional providers on the platform built for real work.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/browse-providers"
+                className="inline-flex items-center justify-center gap-2 bg-[#0B1F5C] text-white font-semibold px-8 py-4 rounded-xl hover:bg-[#00A87D] transition-colors"
+              >
+                Get Started
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center justify-center gap-2 border-2 border-[#0E8A7F] text-[#0E8A7F] font-semibold px-8 py-4 rounded-xl hover:border-white/60 transition-colors"
+              >
+                Apply as Professional
+              </a>
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

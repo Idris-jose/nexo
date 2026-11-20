@@ -1,3 +1,5 @@
+import { FadeIn } from "../ui/FadeIn";
+
 const earningsBullets = [
   "Provider commission or service fee (to confirm)",
   "How the fee is calculated (to confirm)",
@@ -11,11 +13,11 @@ const earningsBullets = [
 export default function ProviderEarnings() {
   return (
     <section className="bg-white py-20 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeIn direction="up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left: Know what you earn */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A1628] mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B1F5C] mb-4">
               Know what you earn.
             </h2>
             <p className="text-gray-500 text-base mb-6 leading-relaxed">
@@ -24,8 +26,8 @@ export default function ProviderEarnings() {
             </p>
             <ul className="space-y-3">
               {earningsBullets.map((bullet) => (
-                <li key={bullet} className="flex items-start gap-2.5 text-gray-600 text-sm">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0A1628] flex-shrink-0" />
+                <li key={bullet} className="flex items-start gap-2.5 text-[#0B1F5C] text-sm">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0B1F5C] flex-shrink-0" />
                   {bullet}
                 </li>
               ))}
@@ -70,7 +72,7 @@ export default function ProviderEarnings() {
             </div>
           </div>
         </div>
-      </div>
+      </FadeIn >
     </section>
   );
 }

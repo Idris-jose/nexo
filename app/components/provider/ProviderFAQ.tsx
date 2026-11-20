@@ -130,7 +130,7 @@ export default function ProviderFAQ() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
           {faqGroups.map((group) => (
             <div key={group.section}>
-              <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+              <h3 className="text-xs font-bold text-[#0E8A7F] uppercase tracking-widest mb-4">
                 {group.section}
               </h3>
               <div>

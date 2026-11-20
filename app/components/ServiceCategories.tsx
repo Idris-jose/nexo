@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FadeIn } from "@/app/components/ui/FadeIn";
 
 const categories = [
   {
@@ -75,84 +76,49 @@ const categories = [
       </svg>
     ),
   },
+  {
+    label: "And many more",
+    description: "120+ more services to explore on the app.",
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+    ),
+  }
 ];
 
 export default function ServiceCategories() {
   return (
-    <section className="bg-white py-14 md:py-20">
+    <section className="bg-[#F3F5F8] py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header — left-aligned on mobile, centered on desktop */}
-        <div className="mb-10 md:mb-14 md:text-center">
+        <FadeIn direction="up" className="mb-10 md:mb-14 md:text-left">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1a1a2e] mb-3">
             What do you need help with?
           </h2>
-          <p className="text-gray-500 text-base md:text-lg md:max-w-xl md:mx-auto">
+          <p className="text-gray-500 text-left">
             Find the right professional in Nexo, all over our platform.
           </p>
-        </div>
+        </FadeIn>
 
-        {/* Mobile: list layout | Desktop: grid cards */}
-        <div className="block md:hidden space-y-1">
+        {/* Unified grid: 1 col on mobile → 2 col sm → 3 col md → 4 col lg */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {categories.map((cat, i) => (
-            <Link
-              key={cat.label}
-              href="/browse-providers"
-              className="flex items-center gap-4 py-4 border-b border-gray-100 hover:bg-gray-50 transition-colors -mx-4 px-4"
-            >
-              <div className="w-10 h-10 rounded-lg bg-[#F9FAFB] border border-gray-100 flex items-center justify-center text-gray-600 flex-shrink-0">
-                {cat.icon}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-[#1a1a2e]">{cat.label}</p>
-                <p className="text-xs text-gray-400 mt-0.5 truncate">{cat.description}</p>
-              </div>
-              <svg className="w-4 h-4 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            <FadeIn key={cat.label} direction="up" delay={i * 60}>
+              <Link
+                href="/browse-providers"
+                className="group flex flex-col text-left items-left gap-3 p-6 rounded-2xl border border-gray-100 bg-white hover:border-[#00C896] hover:shadow-md transition-all cursor-pointer h-full"
+              >
+                <div className="w-14 h-14 rounded-full bg-[#E3F4F2] group-hover:bg-[#00C896]/10 flex items-center justify-center text-[#0E8A7F] group-hover:text-[#00C896] transition-colors">
+                  {cat.icon}
+                </div>
+                <span className="text-sm font-semibold text-[#1a1a2e] text-left leading-tight">
+                  {cat.label}
+                </span>
+                <p className="text-xs text-gray-400 text-left mt-0.5 truncate">{cat.description}</p>
+              </Link>
+            </FadeIn>
           ))}
-          <Link
-            href="/browse-providers"
-            className="flex items-center gap-4 py-4 -mx-4 px-4 hover:bg-gray-50 transition-colors"
-          >
-            <div className="w-10 h-10 rounded-lg bg-[#00C896]/10 flex items-center justify-center flex-shrink-0">
-              <svg className="w-5 h-5 text-[#00C896]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-            <span className="text-sm font-bold text-[#00C896]">And Many More</span>
-          </Link>
-        </div>
-
-        {/* Desktop: grid cards */}
-        <div className="hidden md:grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {categories.map((cat) => (
-            <Link
-              key={cat.label}
-              href="/browse-providers"
-              className="group flex flex-col items-center gap-3 p-6 rounded-2xl border border-gray-100 bg-white hover:border-[#00C896] hover:shadow-md transition-all cursor-pointer"
-            >
-              <div className="w-14 h-14 rounded-xl bg-[#F9FAFB] group-hover:bg-[#00C896]/10 flex items-center justify-center text-gray-600 group-hover:text-[#00C896] transition-colors">
-                {cat.icon}
-              </div>
-              <span className="text-sm font-semibold text-[#1a1a2e] text-center leading-tight">
-                {cat.label}
-              </span>
-            </Link>
-          ))}
-          <Link
-            href="/browse-providers"
-            className="group flex flex-col items-center gap-3 p-6 rounded-2xl border border-gray-100 bg-[#F9FAFB] hover:border-[#00C896] hover:shadow-md transition-all cursor-pointer"
-          >
-            <div className="w-14 h-14 rounded-xl bg-white group-hover:bg-[#00C896]/10 flex items-center justify-center text-[#00C896] transition-colors">
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-            <span className="text-sm font-semibold text-[#00C896] text-center leading-tight">
-              And many more
-            </span>
-          </Link>
         </div>
       </div>
     </section>

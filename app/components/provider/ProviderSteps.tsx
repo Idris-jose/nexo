@@ -1,3 +1,5 @@
+import { FadeIn } from "../ui/FadeIn";
+
 const steps = [
   {
     number: "01",
@@ -29,30 +31,32 @@ const steps = [
 export default function ProviderSteps() {
   return (
     <section className="bg-[#F9FAFB] py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FadeIn direction="up" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-14">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0A1628] mb-3">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B1F5C] mb-3">
             Start with your skills. We&apos;ll take it from there.
           </h2>
         </div>
 
         {/* Steps grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {steps.map((step) => (
-            <div
+          {steps.map((step,i) => (
+            <FadeIn
+              direction="up"
+              delay={i * 60}
               key={step.number}
               className="bg-white rounded-xl border border-gray-200 p-7 hover:border-[#00C896]/50 hover:shadow-sm transition-all"
             >
-              <span className="text-xs font-bold text-gray-400 tracking-widest mb-4 block">
+              <span className="text-xs font-bold text-[#0E8A7F] tracking-widest mb-4 block">
                 {step.number}
               </span>
               <h3 className="text-base font-bold text-[#0A1628] mb-2">{step.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">{step.description}</p>
-            </div>
+            </FadeIn>
           ))}
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }

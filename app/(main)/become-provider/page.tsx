@@ -6,6 +6,7 @@ import ProviderEarnings from "../../components/provider/ProviderEarnings";
 import ProviderSupport from "../../components/provider/ProviderSupport";
 import ProviderFAQ from "../../components/provider/ProviderFAQ";
 import ProviderBottomCTA from "../../components/provider/ProviderBottomCTA";
+import TwoWays from "@/app/components/provider/TwoWays";
 
 export const metadata: Metadata = {
   title: "Become a Provider – Nexo",
@@ -21,6 +22,8 @@ export default function BecomeProviderPage() {
 
       {/* Section 2: Benefits — "More opportunities. More control over your work." */}
       <ProviderFeatures />
+
+      <TwoWays />
 
       {/* Section 3: How it works — "Start with your skills. We'll take it from there." */}
       <ProviderSteps />
