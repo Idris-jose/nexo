@@ -97,7 +97,7 @@ export default function ServiceCategories() {
             What do you need help with?
           </h2>
           <p className="text-gray-500 text-left">
-            Find the right professional in Nexo, all over our platform.
+            Find the right professional in NEXO®, all over our platform.
           </p>
         </FadeIn>
 
@@ -105,9 +105,8 @@ export default function ServiceCategories() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {categories.map((cat, i) => (
             <FadeIn key={cat.label} direction="up" delay={i * 60}>
-              <Link
-                href="/browse-providers"
-                className="group flex flex-col text-left items-left gap-3 p-6 rounded-2xl border border-gray-100 bg-white hover:border-[#00C896] hover:shadow-md transition-all cursor-pointer h-full"
+              <div
+                className="group flex flex-col text-left items-left gap-3 p-6 rounded-2xl border border-gray-100 bg-white hover:border-[#00C896] hover:shadow-md transition-all  h-full"
               >
                 <div className="w-14 h-14 rounded-full bg-[#E3F4F2] group-hover:bg-[#00C896]/10 flex items-center justify-center text-[#0E8A7F] group-hover:text-[#00C896] transition-colors">
                   {cat.icon}
@@ -116,7 +115,7 @@ export default function ServiceCategories() {
                   {cat.label}
                 </span>
                 <p className="text-xs text-gray-400 text-left mt-0.5 truncate">{cat.description}</p>
-              </Link>
+              </div>
             </FadeIn>
           ))}
         </div>

@@ -13,7 +13,7 @@ export default function TryNexo() {
               No sign-up required
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">
-              Don&apos;t just take our word for it. Try Nexo.
+              Don&apos;t just take our word for it. Try NEXO®.
             </h2>
             <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-md">
               Explore the Nexo experience for yourself. Browse, discover how services work and get

@@ -18,8 +18,8 @@ export default function HomePage() {
         <ServiceCategories />
         <HowItWorks />
         <TwoWays />
+         <TryNexo />
         <TrustFeatures />
-        <TryNexo />
         <ProviderCTA />
         <FAQ />
       </main>

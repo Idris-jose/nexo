@@ -12,7 +12,7 @@ export default function TwoWays() {
             One platform. Two ways to get things done.
           </h2>
           <p className="text-gray-500 text-lg ">
-            Whether you have a specific job in mind or want to browse available pros, Nexo has you covered.
+            Whether you have a specific job in mind or want to browse available pros, NEXO® has you covered.
           </p>
         </FadeIn>
 

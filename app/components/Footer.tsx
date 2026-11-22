@@ -91,7 +91,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 mt-12 pt-8 text-center">
-          <p className="text-gray-500 text-sm">© 2025 Nexo. All rights reserved.</p>
+          <p className="text-gray-500 text-sm">© 2025 NEXO®. All rights reserved.</p>
         </div>
       </div>
     </footer>

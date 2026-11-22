@@ -12,7 +12,7 @@ export default function ProviderPageHero() {
             <span className="inline-block text-xs font-bold tracking-widest text-[#00C896] uppercase mb-6">
               For Service Professionals
             </span>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-[#0A1628] leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-[#0A1628] leading-[1.1] mb-6">
               Turn your skills
               <br />
               into{" "}
@@ -20,7 +20,7 @@ export default function ProviderPageHero() {
             </h1>
             <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-md">
               Connect with customers looking for your services, discover new jobs
-              and grow your business with Nexo.
+              and grow your business with NEXO®.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

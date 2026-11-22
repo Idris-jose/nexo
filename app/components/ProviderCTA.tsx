@@ -17,7 +17,7 @@ export default function ProviderCTA() {
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[480px] w-full max-w-7xl mx-auto items-center">
         {/* Image — top on mobile, left column on desktop */}
         <FadeIn direction="left">
-          <div className="w-full">
+          <div className="w-full md:p-4 sm:p-4 p-5">
             <Image src="/Nexoimages/Image_ service provider preparing for a job.png" alt="dd" width={500} height={500} className="w-full h-auto rounded-2xl" />
           </div>
         </FadeIn>
@@ -32,7 +32,7 @@ export default function ProviderCTA() {
               <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B1F5C] leading-tight mb-2">
                 Your skills deserve more opportunities.
               </h2>
-              <p className="text-[#4B5563]">Find new customers, take on jobs that fit your skills and grow your service business with Nexo.</p>
+              <p className="text-[#4B5563]">Find new customers, take on jobs that fit your skills and grow your service business with NEXO®.</p>
 
               <ul className="space-y-4 mt-3 mb-8">
                 {perks.map((perk) => (

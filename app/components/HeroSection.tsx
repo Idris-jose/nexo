@@ -13,7 +13,7 @@ export default function HeroSection() {
           {/* Left Content */}
           <div>
             <span className="inline-block uppercase text-[10px] sm:text-xs font-bold tracking-widest text-[#00C896] uppercase mb-4">
-             Nexo marketplace
+             NEXO®  marketplace
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0B1F5C] leading-tight mb-5">
               Where needs meet the <span className="text-[#0E8A7F]">right people.</span>
@@ -60,25 +60,27 @@ export default function HeroSection() {
             <div className="relative rounded-2xl overflow-hidden">
               <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl h-[480px] flex items-end">
                 <div>
-                <Image alt="hero" src="/Nexoimages/Heroimage1.png" width={1000} height={1000} />
+                <Image alt="hero" src="/Nexoimages/image 7.png" width={1000} height={1000} />
                </div>
               </div>
               {/* Floating badge */}
-              <div className="absolute top-6 right-6 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#00C896]" />
-                <span className="text-xs font-semibold text-[#1a1a2e]">Verified Pro</span>
+              <div className="absolute flex text-left top-6 right-6 bg-white rounded-xl shadow-lg px-4 py-3 gap-2">
+                <Image  alt="badge" src="/Nexoimages/Avatar (placeholder).png" width={50} height={50} />
+                <div>
+                 <p className="text-xs font-semibold text-[#1a1a2e]">Daniel O.</p>
+                <p className="text-[10px] text-gray-500">Electrical Services</p>
+                <p className="text-[10px] text-gray-500">4.9 ★ · 28 reviews</p>
+                </div>
               </div>
               {/* Rating badge */}
-              <div className="absolute bottom-10 left-6 bg-white rounded-xl shadow-lg px-4 py-3">
-                <div className="flex items-center gap-1 mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+              <div className="absolute flex items-center gap-2 bottom-10 left-6 bg-white rounded-xl shadow-lg px-4 py-3">
+
+                <Image  alt="badge" src="/Nexoimages/Success icon holder.png" width={50} height={50} />
+                <div>
+                <p className="text-xs font-semibold text-[#1a1a2e]">Request sent</p>
+                <p className="text-[10px] text-gray-500">Your service request is on its way.</p>
                 </div>
-                <p className="text-xs font-semibold text-[#1a1a2e]">4.9 / 5.0</p>
-                <p className="text-[10px] text-gray-500">2,400+ reviews</p>
+                
               </div>
             </div>
           </div>
@@ -90,11 +92,7 @@ export default function HeroSection() {
                 <Image alt="hero" src="/Nexoimages/Heroimage1.png" width={1000} height={1000} />
                </div>
           </div>
-        {/* Verified badge */}
-        <div className="absolute top-3 right-3 bg-white/95 rounded-lg px-2.5 py-1.5 flex items-center gap-1.5 shadow">
-          <div className="w-2 h-2 rounded-full bg-[#00C896]" />
-          <span className="text-[10px] font-bold text-[#1a1a2e]">Verified Pro</span>
-        </div>
+        
       </div>
         </div>
       </FadeIn>

@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="w-full bg-[#0B1F5C] sticky top-0 z-50">
@@ -17,12 +19,16 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-7">
-            <Link
-              href="/become-provider"
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-            >
-              Become a Provider
-            </Link>
+                    <Link
+          href="/become-provider"
+          className={`text-sm font-medium transition-colors ${
+            pathname === "/become-provider"
+              ? "text-[#00C896]"
+              : "text-gray-300 hover:text-white"
+          }`}
+        >
+          Become a Provider
+        </Link>
             <Link
               href="#"
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
@@ -32,7 +38,7 @@ export default function Navbar() {
 
              <div className="hidden md:flex items-center">
             <Link
-              href="/browse-providers"
+              href="/"
               className="bg-[#00C896] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#00A87D] transition-colors"
             >
               Get Started
@@ -65,13 +71,17 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-[#0D1B2A] border-t border-white/10 px-4 pb-4 pt-2 space-y-3">
-          <Link
-            href="/become-provider"
-            className="block text-sm font-medium text-gray-300 hover:text-white py-2"
-            onClick={() => setMenuOpen(false)}
-          >
-            Become a Provider
-          </Link>
+         <Link
+  href="/become-provider"
+  className={`block text-sm font-medium py-2 transition-colors ${
+    pathname === "/become-provider"
+      ? "text-[#00C896]"
+      : "text-gray-300 hover:text-white"
+  }`}
+  onClick={() => setMenuOpen(false)}
+>
+  Become a Provider
+</Link>
           <Link
             href="#"
             className="block text-sm font-medium text-gray-300 hover:text-white py-2"

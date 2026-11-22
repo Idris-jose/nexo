@@ -5,9 +5,9 @@ import { FadeIn } from "@/app/components/ui/FadeIn";
 
 const faqsLeft = [
   {
-    question: "How does Nexo work?",
+    question: "How does NEXO® work?",
     answer:
-      "Nexo connects clients with verified service professionals. You can either post a job and receive quotes, or browse our directory of providers and book directly. All payments are handled securely through the platform.",
+      "NEXO® connects clients with verified service professionals. You can either post a job and receive quotes, or browse our directory of providers and book directly. All payments are handled securely through the platform.",
   },
   {
     question: "What is the difference between Post a Gig and Find a Provider?",
@@ -28,7 +28,7 @@ const faqsLeft = [
 
 const faqsRight = [
   {
-    question: "How do I join Nexo?",
+    question: "How do I join NEXO®?",
     answer:
       "Sign up for free at nexo.com. If you're a client, you can start posting jobs immediately. Providers go through a verification process including ID and background checks before being listed.",
   },
@@ -40,12 +40,12 @@ const faqsRight = [
   {
     question: "How do I control my fees?",
     answer:
-      "Providers can set their own rates and fees. Nexo charges a small platform fee of 5% on each transaction, which covers payment processing, insurance, and platform support.",
+      "Providers can set their own rates and fees. NEXO® charges a small platform fee of 5% on each transaction, which covers payment processing, insurance, and platform support.",
   },
   {
     question: "How much is the platform fee?",
     answer:
-      "Nexo charges a flat 5% platform fee on all transactions. There are no monthly subscription fees, no listing fees, and no hidden charges. You only pay when you earn.",
+      "NEXO® charges a flat 5% platform fee on all transactions. There are no monthly subscription fees, no listing fees, and no hidden charges. You only pay when you earn.",
   },
 ];
 
@@ -108,7 +108,7 @@ export default function FAQ() {
         <FadeIn direction="up" delay={200}>
           <div className="mt-20 bg-[#E3F4F2] rounded-3xl px-8 py-14 text-center">
             <h3 className="text-3xl md:text-4xl font-extrabold text-[#0B1F5C] mb-4">
-              Whatever needs doing, Nexo gets you closer.
+              Whatever needs doing, NEXO® gets you closer.
             </h3>
             <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
               Join thousands of satisfied clients and professional providers on the platform built for real work.

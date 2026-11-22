@@ -12,7 +12,7 @@ const faqGroups: { section: string; items: FAQItem[] }[] = [
     section: "Getting started",
     items: [
       {
-        q: "Who can become a provider on Nexo?",
+        q: "Who can become a provider on NEXO®?",
         a: "Anyone who offers a service can apply to become a provider on Nexo. This includes tradespeople, freelancers, and service professionals of all kinds. You will need to complete our verification process.",
       },
       {
@@ -54,8 +54,8 @@ const faqGroups: { section: string; items: FAQItem[] }[] = [
     section: "Fees & payments",
     items: [
       {
-        q: "Does Nexo charge providers a commission?",
-        a: "Yes. Nexo charges a small platform fee on each completed job. This fee covers payment processing, platform maintenance, and support services.",
+        q: "Does NEXO® charge providers a commission?",
+        a: "Yes. NEXO® charges a small platform fee on each completed job. This fee covers payment processing, platform maintenance, and support services.",
       },
       {
         q: "How is my commission calculated?",
@@ -76,7 +76,7 @@ const faqGroups: { section: string; items: FAQItem[] }[] = [
     items: [
       {
         q: "How do I manage an active job?",
-        a: "Use your Nexo provider dashboard to track active jobs, communicate with clients, update job status, and manage your schedule all in one place.",
+        a: "Use your NEXO® provider dashboard to track active jobs, communicate with clients, update job status, and manage your schedule all in one place.",
       },
       {
         q: "What happens if a customer cancels?",
@@ -84,7 +84,7 @@ const faqGroups: { section: string; items: FAQItem[] }[] = [
       },
       {
         q: "What happens if a customer disputes a completed job?",
-        a: "Nexo's support team will review the dispute and work with both parties to reach a fair resolution. We protect providers from unfair or fraudulent claims.",
+        a: "NEXO®'s support team will review the dispute and work with both parties to reach a fair resolution. We protect providers from unfair or fraudulent claims.",
       },
       {
         q: "How can customers rate or review my work?",
