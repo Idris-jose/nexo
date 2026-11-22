@@ -4,7 +4,7 @@ import { SESSION_KEY } from "@/lib/demo/constants";
 import { homeFor } from "@/lib/demo/session";
 import { getState } from "@/lib/demo/store";
 
-/** Live-site behaviour: with a session, "Get Started" becomes "Open app" and "Sign In" hides. */
+/** With a demo session, "Get Started" opens that user's app and "Sign In" hides. */
 export function useSessionHome(): string | null {
   const [home, setHome] = useState<string | null>(null);
   useEffect(() => {
@@ -20,7 +20,8 @@ export function useSessionHome(): string | null {
 
 export function GetStartedLink({ className }: { className: string }) {
   const home = useSessionHome();
-  return <a href={home ?? "/login/"} className={className}>{home ? "Open app" : "Get Started"}</a>;
+  // Always labelled "Get Started"; a signed-in demo user goes straight back into their app.
+  return <a href={home ?? "/login/"} className={className}>Get Started</a>;
 }
 
 export function SignInLink({ className }: { className: string }) {
