@@ -18,7 +18,7 @@ export default function ProviderBottomCTA() {
         </Link>
         <p className="text-gray-500 text-sm mt-6">
           Already curious?{" "}
-          <Link href="#" className="text-gray-400 underline underline-offset-2 hover:text-white transition-colors">
+          <Link href="/preview/?view=vendor" className="text-gray-400 underline underline-offset-2 hover:text-white transition-colors">
             Explore the Provider Preview first.
           </Link>
         </p>

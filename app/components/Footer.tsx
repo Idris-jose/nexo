@@ -28,7 +28,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <Link href="/preview/" className="text-gray-400 text-sm hover:text-white transition-colors">
                   Phone Preview
                 </Link>
               </li>

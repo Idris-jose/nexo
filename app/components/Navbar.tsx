@@ -30,7 +30,7 @@ export default function Navbar() {
           Become a Provider
         </Link>
             <Link
-              href="#"
+              href="/preview/"
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
             >
               Phone Preview
@@ -83,7 +83,7 @@ export default function Navbar() {
   Become a Provider
 </Link>
           <Link
-            href="#"
+            href="/preview/"
             className="block text-sm font-medium text-gray-300 hover:text-white py-2"
             onClick={() => setMenuOpen(false)}
           >

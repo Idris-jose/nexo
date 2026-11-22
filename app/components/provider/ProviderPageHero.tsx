@@ -30,7 +30,7 @@ export default function ProviderPageHero() {
                 Become a Provider
               </Link>
               <Link
-                href="#"
+                href="/preview/?view=vendor"
                 className="inline-flex items-center justify-center border border-[#0E8A7F] text-[#0E8A7F] font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors text-sm"
               >
                 Explore Provider Preview
