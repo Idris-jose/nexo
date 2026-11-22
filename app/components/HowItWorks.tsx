@@ -15,7 +15,7 @@ const steps = [
     title: "Choose your professional",
     description:
       "Review profiles, ratings, portfolios, and prices. Compare options and pick the pro that fits your needs and budget.",
-  Image:"/Nexoimages/Image_ Choose your professional.png"
+  Image:"/Nexoimages/step-choose-professional.png"
   },
   {
     number: "03",
@@ -29,7 +29,7 @@ const steps = [
     title: "Complete and review",
     description:
       "Confirm work completion, release payment, and leave a review. Your feedback helps the community find the best professionals.",
-   Image:"/Nexoimages/Image_ Complete and review.png"
+   Image:"/Nexoimages/step-complete-review.png"
   },
 ];
 
