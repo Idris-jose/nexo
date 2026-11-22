@@ -13,7 +13,7 @@ const faqGroups: { section: string; items: FAQItem[] }[] = [
     items: [
       {
         q: "Who can become a provider on NEXO®?",
-        a: "Anyone who offers a service can apply to become a provider on Nexo. This includes tradespeople, freelancers, and service professionals of all kinds. You will need to complete our verification process.",
+        a: "Anyone who offers a service can apply to become a provider on NEXO®. This includes tradespeople, freelancers, and service professionals of all kinds. You will need to complete our verification process.",
       },
       {
         q: "How do I register?",

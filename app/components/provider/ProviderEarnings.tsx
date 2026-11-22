@@ -65,7 +65,7 @@ export default function ProviderEarnings() {
                 </div>
 
                 <p className="text-xs text-gray-400 leading-relaxed pt-2">
-                  Example only. Figures and fee calculations to be replaced with Nexo's current provider
+                  Example only. Figures and fee calculations to be replaced with NEXO®'s current provider
                   pricing. Do not share guaranteed earnings.
                 </p>
               </div>

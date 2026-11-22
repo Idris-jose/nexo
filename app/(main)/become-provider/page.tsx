@@ -9,9 +9,9 @@ import ProviderBottomCTA from "../../components/provider/ProviderBottomCTA";
 import TwoWays from "@/app/components/provider/TwoWays";
 
 export const metadata: Metadata = {
-  title: "Become a Provider – Nexo",
+  title: "Become a Provider – NEXO®",
   description:
-    "Turn your skills into opportunities. Join Nexo as a service provider, find more clients, manage your work, and get paid securely.",
+    "Turn your skills into opportunities. Join NEXO® as a service provider, find more clients, manage your work, and get paid securely.",
 };
 
 export default function BecomeProviderPage() {

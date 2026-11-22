@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Browse Providers – Nexo",
+  title: "Browse Providers – NEXO®",
   description:
-    "Find and hire verified service professionals on Nexo. Filter by category, location, and rating.",
+    "Find and hire verified service professionals on NEXO®. Filter by category, location, and rating.",
 };
 
 const categories = [

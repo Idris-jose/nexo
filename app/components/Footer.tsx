@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="inline-flex items-center gap-1 mb-4">
-              <Image src="/logo.png" alt="Nexo" width={100} height={100} />
+              <Image src="/logo.png" alt="NEXO®" width={100} height={100} />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs mt-2">
               Connecting customers with trusted service professionals.

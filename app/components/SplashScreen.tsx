@@ -73,7 +73,7 @@ export default function SplashScreen() {
         pointerEvents: stage === "sliding-out" ? "none" : "auto",
         transition: "opacity 700ms ease-in-out",
       }}
-      aria-label="Loading Nexo"
+      aria-label="Loading NEXO®"
       role="dialog"
       aria-modal="true"
     >
@@ -92,7 +92,7 @@ export default function SplashScreen() {
         >
           <Image
             src="/Nexoimages/Nexo logo.png"
-            alt="Nexo Logo"
+            alt="NEXO® Logo"
             width={340}
             height={130}
             priority

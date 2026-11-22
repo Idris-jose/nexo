@@ -16,7 +16,7 @@ export default function TryNexo() {
               Don&apos;t just take our word for it. Try NEXO®.
             </h2>
             <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-md">
-              Explore the Nexo experience for yourself. Browse, discover how services work and get
+              Explore the NEXO® experience for yourself. Browse, discover how services work and get
               familiar with the platform — no sign-up required.
             </p>
             <Link

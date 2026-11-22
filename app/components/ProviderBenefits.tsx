@@ -2,7 +2,7 @@ const benefits = [
   {
     title: "Verified Professionals",
     description:
-      "Every provider on Nexo goes through a rigorous vetting process. Background checks, skill assessments, and ID verification ensure you only deal with trusted pros.",
+      "Every provider on NEXO® goes through a rigorous vetting process. Background checks, skill assessments, and ID verification ensure you only deal with trusted pros.",
     icon: (
       <svg className="w-8 h-8 text-[#00C896]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
@@ -55,7 +55,7 @@ export default function ProviderBenefits() {
             Your service. Your peace of mind.
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Nexo is built to protect and empower service professionals at every step.
+            NEXO® is built to protect and empower service professionals at every step.
           </p>
         </div>
 

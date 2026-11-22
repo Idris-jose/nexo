@@ -12,10 +12,10 @@ export default function ProviderHero() {
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
               Don't just take our word for it.{" "}
-              <span className="text-[#00C896]">Try Nexo.</span>
+              <span className="text-[#00C896]">Try NEXO®.</span>
             </h1>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-lg">
-              Join thousands of professionals already growing their business on Nexo.
+              Join thousands of professionals already growing their business on NEXO®.
               Find more clients, manage your work, and get paid — all in one place.
             </p>
             <Link
