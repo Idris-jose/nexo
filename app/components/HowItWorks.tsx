@@ -22,7 +22,7 @@ const steps = [
     title: "Get the job done",
     description:
       "Your chosen professional arrives and completes the work. All bookings are protected and payments handled securely.",
-    Image:"/Nexoimages/Image_ Get the job done.png"
+    Image:"/Nexoimages/step-get-job-done.png"
   },
   {
     number: "04",
