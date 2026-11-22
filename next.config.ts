@@ -1,12 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   experimental: {
     agentFeedback: true,
   },
   cacheComponents: true,
   partialPrefetching: true,
+  // The demo apps link to `/app/#/…` and `/vendor/#/…` (same as the live site).
+  trailingSlash: true,
   turbopack: {
     rules: {
       "*.css": {

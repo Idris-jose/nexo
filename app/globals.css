@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Figma (Nexo marketplace) palette */
+  --color-navy: #0b1f5c;
+  --color-nav: #012057;
+  --color-teal: #0e8a7f;
+  --color-teal-light: #5ec9be;
+  --color-mint: #e3f4f2;
+  --color-body: #4b5563;
+  --color-surface: #f3f5f8;
+  --color-seg: #eaf0f5;
+  --color-footer-text: #c9d3e6;
+  --color-divider: #23407f;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* In-app semantic tokens (live demo names). Same Figma teal (#0E8A7F) as the marketing site, so the preview reads as one brand. */
+  --color-primary: var(--color-teal);
+  --color-primary-dark: #0b7268;
+  --color-primary-soft: #e3f4f2;
+  --color-ink: #0b1f5c;
+  --color-cream: #f3f5f8;
+  --color-cream-2: #eaf0f5;
+  --color-field: #eef1f5;
+  --color-gold: #f5b82e;
+  --color-yellow: #fff1c7;
+  --color-muted: #5b6475;
+  --color-line: #e1e6ed;
+  --color-danger: #e5484d;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --shadow-soft: 0 4px 16px #0b1f5c0f;
+  --shadow-card: 0 8px 24px #0b1f5c14;
+  --shadow-glass: 0 8px 32px #0b1f5c1a;
+  --shadow-primary: 0 10px 24px #0e8a7f38;
+
+  --animate-rise: rise 0.45s cubic-bezier(0.16, 0.84, 0.44, 1) both;
+  --animate-pop: pop 0.5s cubic-bezier(0.16, 0.9, 0.3, 1) both;
+  --animate-blink: blink 1.05s steps(1) infinite;
+
+  @keyframes rise {
+    0% { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pop {
+    0% { opacity: 0; transform: scale(0.5); }
+    60% { transform: scale(1.06); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .glass {
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    backdrop-filter: blur(14px) saturate(150%);
+    background: #ffffffb8;
+  }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+  .field {
+    border: 1px solid var(--color-line);
+    width: 100%;
+    min-height: 46px;
+    color: var(--color-ink);
+    background: #fff;
+    border-radius: 12px;
+    padding: 11px 14px;
+    font-size: 15px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field::placeholder { color: #a3a8b0; }
+  .field:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 4px #0e8a7f1f;
+  }
+  .field[aria-invalid="true"] { border-color: var(--color-danger); }
+}
+
+html { -webkit-tap-highlight-color: transparent; }
+
+/* Splash: logo slides in from the right edge to the centre (Figma "Nexo Splash" start -> end). */
+@keyframes splash-in {
+  0% { transform: translateX(60vw); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes splash-out {
+  to { opacity: 0; visibility: hidden; }
+}
+.splash { animation: splash-out 0.35s ease 1.75s forwards; }
+.splash-logo { animation: splash-in 0.9s cubic-bezier(0.16, 0.84, 0.44, 1) 0.25s both; }
+
+/* Two-tone splash logo: "nex" navy, "o" and "marketplace" white (Figma splash). */
+.splash-mark {
+  aspect-ratio: 1280 / 475;
+  -webkit-mask: url(/brand/nexo-logo-white.png) center / contain no-repeat;
+  mask: url(/brand/nexo-logo-white.png) center / contain no-repeat;
+  background:
+    linear-gradient(to bottom, transparent 73%, #fff 73%),
+    linear-gradient(to right, #0d2a6b 69.5%, #fff 69.5%);
+}
+body { background: #fff; color: var(--color-ink); }
+
+/* Logo for light backgrounds: "nex" navy, "o" and "marketplace" teal (the PNG's "nex" is white for the navy nav). */
+.brand-mark-light {
+  aspect-ratio: 1280 / 475;
+  -webkit-mask: url(/brand/nexo-logo-white.png) left center / contain no-repeat;
+  mask: url(/brand/nexo-logo-white.png) left center / contain no-repeat;
+  background:
+    linear-gradient(to bottom, transparent 73%, var(--color-teal) 73%),
+    linear-gradient(to right, var(--color-navy) 69.5%, var(--color-teal) 69.5%);
 }
