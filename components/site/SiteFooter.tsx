@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const COLUMNS = [
-  { title: "Explore", links: [["Home", "/"], ["Phone Preview", "/preview/"], ["Become a Provider", "/become-a-provider/"], ["Safety & Trust", "/safety/"]] },
+  { title: "Explore", links: [["Home", "/"], ["Phone Preview", "/preview/"], ["Become a Provider", "/become-provider/"], ["Safety & Trust", "/safety/"]] },
   { title: "Account", links: [["Sign In", "/login/"], ["Get Started", "/login/"]] },
   { title: "Legal & Support", links: [["Terms & Conditions", "/terms/"], ["Privacy Policy", "/privacy/"], ["Contact / Support", "/contact/"]] },
 ];

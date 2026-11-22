@@ -27,5 +27,5 @@ export const HIGHLIGHTS: Record<"customer" | "vendor", { icon: LucideIcon; title
 
 export const CTA = {
   customer: { title: "Ready to find the help you need?", body: "Get connected with the right professionals and make getting things done easier.", label: "Get Started", href: "/login/", tone: "navy" },
-  vendor: { title: "Ready to put your skills to work?", body: "Join NEXO®, connect with customers and start finding opportunities.", label: "Become a Provider", href: "/become-a-provider/", tone: "teal" },
+  vendor: { title: "Ready to put your skills to work?", body: "Join NEXO®, connect with customers and start finding opportunities.", label: "Become a Provider", href: "/become-provider/", tone: "teal" },
 } as const;

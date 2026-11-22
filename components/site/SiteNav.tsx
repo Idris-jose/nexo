@@ -1,15 +1,20 @@
+"use client";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cx } from "@/components/ui/cx";
 import { GetStartedLink, SignInLink } from "./AuthCta";
 
 const LINKS = [
-  { href: "/become-a-provider/", label: "Become a Provider" },
+  { href: "/become-provider/", label: "Become a Provider" },
   { href: "/preview/", label: "Phone Preview" },
 ];
 
-export function SiteNav({ active }: { active?: string }) {
+/** The one site header: landing, Become a Provider, Phone Preview and info pages all render this. */
+export function SiteNav({ active: forced }: { active?: string } = {}) {
+  const pathname = usePathname();
+  const active = forced ?? LINKS.find((l) => pathname === l.href || pathname === l.href.replace(/\/$/, ""))?.href;
   return (
     <header className="sticky top-0 z-40 bg-nav">
       <div className="mx-auto flex h-[73px] max-w-[1440px] items-center justify-between px-5 lg:h-24 lg:px-16">
