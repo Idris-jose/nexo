@@ -31,7 +31,7 @@ export default function HeroSection() {
                 Become a client
               </Link>
               <Link
-                href="/become-provider"
+                href="/become-provider/"
                 className="border-2 border-[#0E8A7F] text-[#0E8A7F] font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors text-center text-sm"
               >
                 Explore Provider Preview
