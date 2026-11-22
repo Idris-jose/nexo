@@ -13,7 +13,7 @@ import SplashScreen from "./components/SplashScreen";
 export default function HomePage() {
   // The landing page plays its own splash; the demo apps have theirs (components/ui Splash).
   return (
-    <div className="flex min-h-full flex-col">
+    <div className="flex min-h-full flex-col overflow-x-clip">
       <SplashScreen />
       <Navbar />
       <main className="flex-1">

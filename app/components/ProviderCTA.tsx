@@ -18,7 +18,7 @@ export default function ProviderCTA() {
         {/* Image — top on mobile, left column on desktop */}
         <FadeIn direction="left">
           <div className="w-full md:p-4 sm:p-4 p-5">
-            <Image src="/Nexoimages/Image_ service provider preparing for a job.png" alt="dd" width={500} height={500} className="w-full h-auto rounded-2xl" />
+            <Image src="/Nexoimages/provider-preparing-for-job.png" alt="dd" width={500} height={500} className="w-full h-auto rounded-2xl" />
           </div>
         </FadeIn>
 

@@ -52,12 +52,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
-                  Sign In
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 text-sm hover:text-white transition-colors">
+                <Link href="/login/" className="text-gray-400 text-sm hover:text-white transition-colors">
                   Get Started
                 </Link>
               </li>

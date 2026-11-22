@@ -20,9 +20,6 @@ export default function PreviewPage() {
           <p className="max-w-[1312px] text-base text-body lg:text-lg">
             Whether you&apos;re looking for a service or offering your skills, take a look around and see how NEXO® works for you.
           </p>
-          <p className="max-w-2xl text-sm text-body/80">
-            The Service Requestor (Alex) and the Vendor (John) share the same live data. Accept a bid on one phone and watch it land on the other.
-          </p>
         </section>
         <Suspense fallback={<PreviewStageFallback />}>
           <PreviewStage />
