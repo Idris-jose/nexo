@@ -28,10 +28,10 @@ export default function HeroSection() {
                 href="/browse-providers"
                 className="bg-[#0B1F5C] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#0D1B2A] transition-colors text-center text-sm"
               >
-                Become a client
+                Become a customer
               </Link>
               <Link
-                href="/become-provider/"
+                href="/preview/?view=vendor"
                 className="border-2 border-[#0E8A7F] text-[#0E8A7F] font-semibold px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors text-center text-sm"
               >
                 Explore Provider Preview
