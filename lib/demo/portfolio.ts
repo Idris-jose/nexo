@@ -13,10 +13,10 @@ export interface WorkItem {
 
 const BY_SERVICE: Record<string, WorkItem[]> = {
   electrical: [
-    { title: "DB board replacement", detail: "Old fuse box swapped for a 12-way board with earth leakage.", photo: "/work/electrical/1.jpg" },
-    { title: "Kitchen downlights", detail: "Eight LED downlights on two switched circuits.", photo: "/work/electrical/2.jpg" },
-    { title: "Outdoor plug points", detail: "Weatherproof outlets for a patio, COC issued.", photo: "/work/electrical/3.jpg" },
-    { title: "Fault finding", detail: "Tripping circuit traced to a damaged geyser element.", photo: "/work/electrical/4.jpg" },
+    { title: "DB board replacement", detail: "Old fuse box swapped for a 12-way board with earth leakage." },
+    { title: "Kitchen downlights", detail: "Eight LED downlights on two switched circuits." },
+    { title: "Outdoor plug points", detail: "Weatherproof outlets for a patio, COC issued." },
+    { title: "Fault finding", detail: "Tripping circuit traced to a damaged geyser element." },
   ],
   plumbing: [
     { title: "Geyser replacement", detail: "150 L geyser with new drip tray and vacuum breakers." },
@@ -70,5 +70,9 @@ const BY_SERVICE: Record<string, WorkItem[]> = {
   ],
 };
 
+/** Shared job photos, used by every vendor until each service has its own. */
+const PHOTOS = ["/work/electrical/1.jpg", "/work/electrical/2.jpg", "/work/electrical/3.jpg", "/work/electrical/4.jpg"];
+
 /** Vendors with no completed jobs have no proof of work yet. */
-export const proofOfWork = (v: User): WorkItem[] => (v.completed > 0 ? BY_SERVICE[v.service ?? ""] ?? [] : []);
+export const proofOfWork = (v: User): WorkItem[] =>
+  v.completed > 0 ? (BY_SERVICE[v.service ?? ""] ?? []).map((w, i) => ({ ...w, photo: PHOTOS[i % PHOTOS.length] })) : [];
