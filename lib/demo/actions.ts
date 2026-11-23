@@ -51,6 +51,7 @@ export function verifyCompletion(gigId: string, code: string): Result {
   return r;
 }
 export const submitReview = (gigId: string, rating: number, text: string) => mutate((s) => ops.reviewOp(s, gigId, rating, text));
+export const rateCustomer = (gigId: string, rating: number, text: string) => mutate((s) => ops.rateCustomerOp(s, gigId, rating, text));
 export const toggleSaved = (userId: string, vendorId: string) =>
   mutate((s) => {
     const u = ops.userById(s, userId);

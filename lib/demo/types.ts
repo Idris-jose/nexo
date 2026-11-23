@@ -86,6 +86,8 @@ export interface Gig {
   completionOtp?: Otp;
   settlement?: Settlement;
   review?: { rating: number; text: string; at: number };
+  /** The vendor's rating of the requestor, left after completion. */
+  customerReview?: { rating: number; text: string; at: number };
 }
 
 export interface Bid {
