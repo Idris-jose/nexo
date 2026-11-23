@@ -1,9 +1,10 @@
 "use client";
 import {
-  Bookmark, Camera, ChevronDown, ChevronRight, ChevronUp, CircleCheck, CircleX, ClipboardList, Clock, Copy, CreditCard, FileText,
+  Bookmark, Camera, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, CircleCheck, CircleX, ClipboardList, Clock, Copy, CreditCard, FileText,
   Gavel, Headset, Heart, House, Image as ImageIcon, KeyRound, LayoutGrid, LoaderCircle, Lock, LogOut, Mail, MapPin, MessageCircle, MessageSquare,
   Pencil, Phone, Plus, Search, Shield, ShieldCheck, Star, Tag, Timer, User as UserIcon, X, Zap,
 } from "lucide-react";
+import NextImage from "next/image";
 import { useRouter } from "next/navigation";
 import { use, useMemo, useState, type ReactNode } from "react";
 import { browser } from "react-dom";
@@ -15,6 +16,7 @@ import { fmtCountdown, fmtPhone, gigPrice, statusPill, timeAgo } from "@/lib/dem
 import { AREA_KEYS, area, km } from "@/lib/demo/geo";
 import { bidBreakdown, formatRand, instantUpfront } from "@/lib/demo/money";
 import { nearbyVendors } from "@/lib/demo/ops";
+import { proofOfWork, type WorkItem } from "@/lib/demo/portfolio";
 import { logout } from "@/lib/demo/session";
 import { SERVICES, getService } from "@/lib/demo/services";
 import { useStore } from "@/lib/demo/store";
@@ -525,16 +527,12 @@ function ReviewItem({ g }: { g: Gig }) {
   );
 }
 
-/** Latest two reviews inline; the rest open in a sheet (same pattern as the status timeline). */
+/** Latest two reviews inline; the rest open in a sheet (same pattern as the status timeline). Collapsed by default. */
 function ReviewsCard({ v, reviewed }: { v: User; reviewed: Gig[] }) {
   const [all, setAll] = useState(false);
   const summary = v.rating ? `${v.rating.toFixed(1)} · ${v.reviewCount} reviews` : undefined;
   return (
-    <Card className="p-4">
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <span className="text-[16px] font-bold text-ink">Reviews</span>
-        {summary && <span className="text-[13px] font-semibold text-primary">{summary}</span>}
-      </div>
+    <Collapsible title="Reviews" open={false} right={summary && <span className="text-[13px] font-semibold text-primary">{summary}</span>}>
       {reviewed.length === 0 ? (
         <p className="text-sm text-muted">No written reviews yet.</p>
       ) : (
@@ -547,7 +545,66 @@ function ReviewsCard({ v, reviewed }: { v: User; reviewed: Gig[] }) {
         {summary && <p className="-mt-3 mb-4 text-[13.5px] text-muted">{v.short} · {summary}</p>}
         <div className="space-y-4">{reviewed.map((g) => <ReviewItem key={g.id} g={g} />)}</div>
       </Modal>
-    </Card>
+    </Collapsible>
+  );
+}
+
+function WorkPhoto({ item, slug, sizes, className }: { item: WorkItem; slug?: string; sizes: string; className?: string }) {
+  return (
+    <span className={cx("relative block overflow-hidden bg-primary-soft", className)}>
+      {item.photo ? (
+        <NextImage src={item.photo} alt={item.title} fill sizes={sizes} className="object-cover" />
+      ) : (
+        <ServiceIcon slug={slug ?? ""} size={22} tile={40} className="absolute inset-0 m-auto bg-white/70" />
+      )}
+    </span>
+  );
+}
+
+const WORK_THUMBS = 4;
+
+/** Past job photos, in the same accordion style as About and Reviews. */
+function ProofOfWork({ v }: { v: User }) {
+  const items = proofOfWork(v);
+  const [viewing, setViewing] = useState<number | null>(null);
+  const item = viewing == null ? undefined : items[viewing];
+  const extra = items.length - WORK_THUMBS;
+  return (
+    <Collapsible title="Proof of work">
+      {items.length === 0 ? (
+        <p className="text-sm text-muted">No job photos yet. They appear here after {v.short}&apos;s first completed gigs.</p>
+      ) : (
+        <div className="grid grid-cols-4 gap-2">
+          {items.slice(0, WORK_THUMBS).map((w, i) => (
+            <button key={w.title} type="button" onClick={() => setViewing(i)} aria-label={w.title} className="relative overflow-hidden rounded-xl">
+              <WorkPhoto item={w} slug={v.service} sizes="110px" className="aspect-square w-full" />
+              {i === WORK_THUMBS - 1 && extra > 0 && (
+                <span className="absolute inset-0 flex items-center justify-center bg-ink/55 text-[15px] font-bold text-white">+{extra}</span>
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+      <p className="mt-3 flex items-center gap-1.5 text-xs text-muted">
+        <ShieldCheck size={14} className="shrink-0 text-primary" />
+        {items.length > 0 ? "From verified NEXO® gigs · " : ""}On NEXO® since {v.joined}
+      </p>
+      <Modal open={!!item} onClose={() => setViewing(null)} title={item?.title ?? ""}>
+        {item && viewing != null && (
+          <>
+            <WorkPhoto item={item} slug={v.service} sizes="440px" className="aspect-[4/3] w-full rounded-2xl" />
+            <p className="mt-3 text-[14px] text-ink/80">{item.detail}</p>
+            {items.length > 1 && (
+              <div className="mt-4 flex items-center justify-between">
+                <IconButton icon={ChevronLeft} label="Previous job" onClick={() => setViewing((viewing + items.length - 1) % items.length)} />
+                <span className="text-[13px] font-semibold text-muted">{viewing + 1} / {items.length}</span>
+                <IconButton icon={ChevronRight} label="Next job" onClick={() => setViewing((viewing + 1) % items.length)} />
+              </div>
+            )}
+          </>
+        )}
+      </Modal>
+    </Collapsible>
   );
 }
 
@@ -593,6 +650,7 @@ function VendorDetails({ user, vendorId, bidGigId }: { user: User; vendorId: str
           <p className="text-[14px] text-ink/80">{v.bio ?? `${svc?.trade} on NEXO®.`}</p>
           {!!v.certifications?.length && <div className="mt-3 flex flex-wrap gap-2">{v.certifications.map((c) => <Badge key={c} icon={ShieldCheck}>{c}</Badge>)}</div>}
         </Collapsible>
+        <ProofOfWork v={v} />
         <ReviewsCard v={v} reviewed={reviewed} />
       </div>
       <div className="sticky bottom-0 -mx-5 mt-5 bg-gradient-to-t from-cream via-cream to-cream/0 px-5 pb-3 pt-4">

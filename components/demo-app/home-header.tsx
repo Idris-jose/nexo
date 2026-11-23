@@ -16,6 +16,8 @@ export function HomeHeader({ user }: { user: User }) {
   const here = area(user.area);
   return (
     <>
+      {/* Brand mark for light backgrounds (navy "nex", teal "o" and "marketplace"), defined in globals.css. */}
+      <span role="img" aria-label="NEXO® marketplace" className="brand-mark-light mx-auto mb-4 block w-[76px]" />
       <div className="mb-5 flex items-center gap-3">
         <a href="#/profile" aria-label="Your profile" className="shrink-0 rounded-full">
           <Avatar name={user.name} id={user.id} size={48} />

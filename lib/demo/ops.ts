@@ -170,6 +170,17 @@ export function reviewOp(s: State, gigId: string, rating: number, text: string) 
   notify(s, v.id, `New ${rating}-star review`, text || undefined, "/vendor/#/reviews", "gold");
 }
 
+/** Vendor rates the requestor once the gig is completed (feeds the requestor's own rating). */
+export function rateCustomerOp(s: State, gigId: string, rating: number, text: string) {
+  const gig = s.gigs.find((g) => g.id === gigId);
+  if (!gig || gig.status !== "completed" || gig.customerReview) return;
+  gig.customerReview = { rating, text, at: Date.now() };
+  const r = userById(s, gig.requestorId);
+  if (!r) return;
+  r.rating = Math.round(((r.rating * r.reviewCount + rating) / (r.reviewCount + 1)) * 10) / 10;
+  r.reviewCount += 1;
+}
+
 export function cancelGigOp(s: State, gigId: string) {
   const gig = s.gigs.find((g) => g.id === gigId);
   if (!gig || !["bidding", "vendor_selected", "payment_pending"].includes(gig.status)) return;

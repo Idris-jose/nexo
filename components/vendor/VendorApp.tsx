@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { use, useState } from "react";
 import { browser } from "react-dom";
 import {
-  arrive, finishInspection, markComplete, placeBid, resendCode, setOnline, startTravel, submitKycDoc, vendorAccept, vendorDecline, verifyStart, withdraw, withdrawBid,
+  arrive, finishInspection, markComplete, placeBid, rateCustomer, resendCode, setOnline, startTravel, submitKycDoc, vendorAccept, vendorDecline, verifyStart, withdraw, withdrawBid,
 } from "@/lib/demo/actions";
 import { ACTIVE_STATUSES, COMMISSION_BPS, OTP_POLICY, RADIUS_KM, TIMING_LABELS } from "@/lib/demo/constants";
 import { fmtCountdown, fmtDate, fmtPhone, statusPill, timeAgo, trade } from "@/lib/demo/format";
@@ -687,6 +687,7 @@ function JobPanel({ gig, r }: { gig: Gig; r: User }) {
               <p className="text-sm text-muted">Waiting for their review.</p>
             )}
           </Card>
+          <RateCustomerCard gig={gig} r={r} />
         </>
       );
     case "cancelled":
@@ -694,6 +695,50 @@ function JobPanel({ gig, r }: { gig: Gig; r: User }) {
     default:
       return null;
   }
+}
+
+/** Vendors rate the requestor too. Same pattern as the requestor's "Rate vendor" card and sheet. */
+function RateCustomerCard({ gig, r }: { gig: Gig; r: User }) {
+  const [open, setOpen] = useState(false);
+  if (gig.customerReview) {
+    return (
+      <Card className="p-5 text-center">
+        <p className="text-[15px] font-bold">Your rating</p>
+        <div className="my-3 flex justify-center"><StarInput value={gig.customerReview.rating} size={28} /></div>
+        {gig.customerReview.text && <p className="text-sm text-ink/80">&quot;{gig.customerReview.text}&quot;</p>}
+      </Card>
+    );
+  }
+  return (
+    <>
+      <Card className="flex items-center gap-3 p-4">
+        <Star size={20} className="shrink-0 text-primary" />
+        <p className="min-w-0 flex-1 text-[14px] font-semibold text-ink">How was {r.short}?</p>
+        <Button size="sm" variant="secondary" onClick={() => setOpen(true)}>Rate</Button>
+      </Card>
+      {open && <RateCustomerSheet gig={gig} r={r} onClose={() => setOpen(false)} />}
+    </>
+  );
+}
+
+function RateCustomerSheet({ gig, r, onClose }: { gig: Gig; r: User; onClose: () => void }) {
+  const [rating, setRating] = useState(0);
+  const [text, setText] = useState("");
+  return (
+    <Modal open onClose={onClose} title={`Rate ${r.short}`}>
+      <div className="-mt-2 mb-4 flex items-center gap-3">
+        <Avatar name={r.name} id={r.id} size={44} />
+        <p className="min-w-0 text-[13.5px] text-muted">{gig.title} · {gig.ref}</p>
+      </div>
+      <div className="space-y-4">
+        <div className="flex justify-center"><StarInput value={rating} onChange={setRating} /></div>
+        <Field label="Written review (optional)" htmlFor="crv">
+          <textarea id="crv" rows={3} className="field resize-none" value={text} onChange={(e) => setText(e.target.value)} placeholder="Share your experience with this customer..." />
+        </Field>
+        <Button full size="lg" disabled={!rating} onClick={() => { rateCustomer(gig.id, rating, text.trim()); toast("Thanks, review submitted"); }}>Submit review</Button>
+      </div>
+    </Modal>
+  );
 }
 
 /* ================= My jobs ================= */

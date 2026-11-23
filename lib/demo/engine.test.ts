@@ -58,6 +58,12 @@ describe("gig flow", () => {
     expect(s.users.find((u) => u.id === "u_bongani")!.walletCents).toBe(before + 53350);
     ops.reviewOp(s, gig.id, 5, "Great");
     expect(gig.review!.rating).toBe(5);
+    const r = s.users.find((u) => u.id === gig.requestorId)!;
+    const count = r.reviewCount;
+    ops.rateCustomerOp(s, gig.id, 4, "Clear brief");
+    ops.rateCustomerOp(s, gig.id, 1, "dupe ignored");
+    expect(gig.customerReview!.rating).toBe(4);
+    expect(r.reviewCount).toBe(count + 1);
   });
   it("auto-bids round to R10 and notify the requestor", () => {
     const s = createSeed();
