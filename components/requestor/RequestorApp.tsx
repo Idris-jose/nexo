@@ -32,7 +32,7 @@ import {
   AdBanner, DemoModePanel, GigRow, GigTimeline, LockNote, MenuRow, PaymentBreakdown, PrivateBadge, ProtectionNote, Row,
 } from "@/components/demo-app/parts";
 import { MessagesPage, NotificationsPage } from "@/components/demo-app/social";
-import { HomeHeader } from "@/components/demo-app/home-header";
+import { BrandMark, HomeHeader } from "@/components/demo-app/home-header";
 
 const TIMING_OPTIONS: { value: Timing; label: string }[] = [
   { value: "asap", label: "ASAP" },
@@ -396,6 +396,7 @@ function AllServices({ user }: { user: User }) {
   const list = SERVICES.filter((sv) => !t || [sv.name, sv.trade, sv.blurb].some((x) => x.toLowerCase().includes(t)));
   return (
     <>
+      <BrandMark />
       <PageHeader title="Services" sub={`${SERVICES.length} categories near ${area(user.area).suburb}`} />
       <label className="relative mb-4 block">
         <span className="sr-only">Search services</span>
@@ -1085,6 +1086,7 @@ function MyGigs({ user }: { user: User }) {
   const gigs = mine.filter((g) => tabOf(g) === tab);
   return (
     <>
+      <BrandMark />
       <PageHeader title="My Gigs" right={<Button href="#/post" icon={Plus} size="sm" className="h-10">New gig</Button>} />
       <div className="mb-4 grid grid-cols-2 gap-3">
         <StatTile icon={ClipboardList} value={activeCount} label="Active gigs" />

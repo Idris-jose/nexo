@@ -7,6 +7,11 @@ import { useStore } from "@/lib/demo/store";
 import type { User } from "@/lib/demo/types";
 import { Avatar, IconButton, Modal, cx, toast } from "@/components/ui";
 
+/** NEXO® logo for light backgrounds (navy "nex", teal "o" and "marketplace"), defined in globals.css. Left-aligned page top. */
+export function BrandMark() {
+  return <span role="img" aria-label="NEXO® marketplace" className="brand-mark-light mb-4 block h-7" />;
+}
+
 /** Home header shared by both apps: photo, greeting, location selector and notifications. */
 export function HomeHeader({ user }: { user: User }) {
   const s = useStore();
@@ -16,8 +21,7 @@ export function HomeHeader({ user }: { user: User }) {
   const here = area(user.area);
   return (
     <>
-      {/* Brand mark for light backgrounds (navy "nex", teal "o" and "marketplace"), defined in globals.css. */}
-      <span role="img" aria-label="NEXO® marketplace" className="brand-mark-light mx-auto mb-4 block w-[76px]" />
+      <BrandMark />
       <div className="mb-5 flex items-center gap-3">
         <a href="#/profile" aria-label="Your profile" className="shrink-0 rounded-full">
           <Avatar name={user.name} id={user.id} size={48} />
