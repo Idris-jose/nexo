@@ -28,7 +28,7 @@ import { AppBackButton, Redirect, navigate, useHashRoute } from "@/components/de
 import { AppShell, PageHeader, RequireRole, type NavItem } from "@/components/demo-app/shell";
 import { AdBanner, DemoModePanel, GigRow, GigTimeline, LockNote, MenuRow, PaymentBreakdown, PrivateBadge, Row } from "@/components/demo-app/parts";
 import { MessagesPage, NotificationsPage } from "@/components/demo-app/social";
-import { HomeHeader } from "@/components/demo-app/home-header";
+import { BrandMark, HomeHeader } from "@/components/demo-app/home-header";
 
 /** Vendor tab bar, same pattern as the Figma customer tab bar. */
 const NAV: NavItem[] = [
@@ -754,6 +754,7 @@ function MyJobs({ user }: { user: User }) {
   const done = mine.filter((g) => g.status === "completed");
   return (
     <>
+      <BrandMark />
       <PageHeader title="My Gigs" sub="Jobs, bids and history." />
       <div className="mb-4 grid grid-cols-2 gap-3">
         <StatTile icon={Briefcase} value={active.length} label="Active jobs" />
