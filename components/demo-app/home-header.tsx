@@ -1,5 +1,6 @@
 "use client";
 import { Bell, CircleCheck, Clock, MapPin, Search, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import { setArea } from "@/lib/demo/actions";
 import { AREA_KEYS, area } from "@/lib/demo/geo";
@@ -7,9 +8,9 @@ import { useStore } from "@/lib/demo/store";
 import type { User } from "@/lib/demo/types";
 import { Avatar, IconButton, Modal, cx, toast } from "@/components/ui";
 
-/** NEXO® logo for light backgrounds (navy "nex", teal "o" and "marketplace"), defined in globals.css. Left-aligned page top. */
+/** NEXO® logo (navy, transparent background) at the top left of the main app pages. */
 export function BrandMark() {
-  return <span role="img" aria-label="NEXO® marketplace" className="brand-mark-light mb-4 block h-7" />;
+  return <Image src="/brand/nexo-logo-navy.png" alt="NEXO® marketplace" width={1493} height={470} priority className="mb-4 h-7 w-auto" />;
 }
 
 /** Home header shared by both apps: photo, greeting, location selector and notifications. */

@@ -117,8 +117,8 @@ export function PreviewStage() {
                 </figcaption>
                 <div style={{ width: outerW * scale, height: outerH * scale }}>
                   <div className="origin-top-left" style={{ width: outerW, height: outerH, transform: `scale(${scale})` }}>
-                    <div className="relative rounded-[56px] border-[16px] border-navy bg-navy shadow-glass">
-                      <div className="pointer-events-none absolute left-1/2 top-1.5 z-10 h-6 w-28 -translate-x-1/2 rounded-full bg-navy" />
+                    <div className="relative rounded-[56px] border-[16px] border-black bg-black shadow-glass">
+                      <div className="pointer-events-none absolute left-1/2 top-1.5 z-10 h-6 w-28 -translate-x-1/2 rounded-full bg-black" />
                       <iframe
                         ref={(el) => {
                           frames.current[i] = el;
@@ -172,7 +172,7 @@ export function PreviewStageFallback() {
         <div className="mx-auto h-[55px] w-[262px] rounded-full bg-seg" />
       </section>
       <section className="bg-surface px-5 py-8 lg:p-16">
-        <div className="mx-auto h-[700px] w-[340px] rounded-[56px] bg-navy p-4"><div className="size-full rounded-[36px] bg-[#dce6ea]" /></div>
+        <div className="mx-auto h-[700px] w-[340px] rounded-[56px] bg-black p-4"><div className="size-full rounded-[36px] bg-[#dce6ea]" /></div>
       </section>
     </>
   );
