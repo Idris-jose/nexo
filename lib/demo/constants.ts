@@ -1,14 +1,14 @@
 import type { GigStatus, Stage, Timing } from "./types";
 
-export const SERVICE_FEE_CENTS = 2000;
-export const COMMISSION_BPS = 300;
+export const SERVICE_FEE_CENTS = 3000;
+export const COMMISSION_BPS = 1200;
 export const BILLING_STEP_MIN = 15;
 export const MIN_BILLABLE_MIN = 60;
 export const RADIUS_KM = 30;
 export const KM_STEP = 0.5;
 export const OTP_POLICY = { ttlSeconds: 600, maxAttempts: 5, maxResends: 3 } as const;
 export const COPY = { paymentProtection: "Payment protected until service completion." } as const;
-export const STATE_VERSION = 5;
+export const STATE_VERSION = 6;
 export const STATE_KEY = "gig.demo.state";
 export const SESSION_KEY = "gig.demo.session";
 export const RELOADED_KEY = "gig.demo.reloaded";

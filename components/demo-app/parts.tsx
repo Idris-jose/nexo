@@ -146,7 +146,7 @@ export function PaymentBreakdown({ gig, viewer }: { gig: Gig; viewer: Viewer }) 
       <div>
         <Row k="Service amount" v={formatRand(st.serviceCents)} />
         {st.billableMinutes != null && <Row k={`Billed time (${hoursLabel(st.billableMinutes)} h)`} v={formatRand(st.serviceCents)} muted />}
-        <Row k="NEXO® commission (3%)" v={`-${formatRand(st.commissionCents)}`} muted />
+        <Row k="NEXO® commission (12%)" v={`-${formatRand(st.commissionCents)}`} muted />
         <div className="my-1.5 border-t border-line" />
         <Row k="You received" v={formatRand(st.payoutCents)} strong />
       </div>

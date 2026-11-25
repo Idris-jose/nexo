@@ -11,7 +11,7 @@ import { browser } from "react-dom";
 import {
   cancelGig, confirmPayment, instantBook, postGig, resendCode, selectBid, submitReview, toggleSaved, unselectBid, verifyCompletion,
 } from "@/lib/demo/actions";
-import { ACTIVE_STATUSES, OPEN_STATUSES, OTP_POLICY, TIMING_LABELS } from "@/lib/demo/constants";
+import { ACTIVE_STATUSES, OPEN_STATUSES, OTP_POLICY, SERVICE_FEE_CENTS, TIMING_LABELS } from "@/lib/demo/constants";
 import { fmtCountdown, fmtPhone, gigPrice, statusPill, timeAgo } from "@/lib/demo/format";
 import { AREA_KEYS, area, km } from "@/lib/demo/geo";
 import { bidBreakdown, formatRand, instantUpfront } from "@/lib/demo/money";
@@ -374,7 +374,7 @@ function PostGig({ user, preset }: { user: User; preset?: string }) {
         <Card className="p-4">
           <p className="text-[15px] font-bold">How bidding works</p>
           <ol className="mt-2.5 space-y-2.5 text-[13px] text-ink/80">
-            {["Verified vendors within 30 km get your gig.", "They bid with a price and arrival time.", "Pick a bid. You pay the bid + R20 service fee.", "Payment stays protected until you verify completion."].map((t, i) => (
+            {["Verified vendors within 30 km get your gig.", "They bid with a price and arrival time.", "Pick a bid. You pay the bid + R30 service fee.", "Payment stays protected until you verify completion."].map((t, i) => (
               <li key={i} className="flex gap-2.5">
                 <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary-soft text-[11px] font-bold text-primary">{i + 1}</span>
                 {t}
@@ -726,8 +726,8 @@ function RequestSheet({ user, vendor, onClose }: { user: User; vendor: User; onC
           <Row k="First hour (vendor hourly rate)" v={formatRand(up.firstHourCents)} />
           <Row k="Service fee" v={formatRand(up.serviceFeeCents)} />
           <div className="my-1.5 border-t border-line" />
-          <Row k="Total due upon acceptance" v={formatRand(up.totalCents)} sub="First hour + R20" strong />
-          <p className="mt-2 text-xs text-muted">The R20 service fee is non-refundable. Payment is due when the vendor accepts. Remaining time is billed in 15-minute increments after completion.</p>
+          <Row k="Total due upon acceptance" v={formatRand(up.totalCents)} sub="First hour + R30" strong />
+          <p className="mt-2 text-xs text-muted">The R30 service fee is non-refundable. Payment is due when the vendor accepts. Remaining time is billed in 15-minute increments after completion.</p>
         </Card>
         <Button full size="lg" onClick={send}>Send request</Button>
       </div>
@@ -913,9 +913,9 @@ function Payment({ gig }: { gig: Gig }) {
       <Card className="p-4">
         <p className="mb-1 text-[16px] font-bold text-ink">Payment summary</p>
         {bid ? <Row k="Accepted bid" v={formatRand(bid.serviceCents)} /> : <Row k={`First hour at ${formatRand(gig.hourlyRateCents!)}/hr`} v={formatRand(inst!.firstHourCents)} />}
-        <Row k="Service fee" v={formatRand(2000)} />
+        <Row k="Service fee" v={formatRand(SERVICE_FEE_CENTS)} />
         <div className="my-1.5 border-t border-line" />
-        <Row k="Total to pay" v={formatRand(total)} sub={bid ? "Bid + R20" : "First hour + R20"} strong />
+        <Row k="Total to pay" v={formatRand(total)} sub={bid ? "Bid + R30" : "First hour + R30"} strong />
       </Card>
       <Card className="space-y-3 p-4">
         <p className="flex items-center gap-2 text-[16px] font-bold text-ink"><CreditCard size={18} className="text-primary" /> Card details</p>

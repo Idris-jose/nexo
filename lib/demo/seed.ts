@@ -96,7 +96,7 @@ export function createSeed(now = Date.now()): State {
     { id: "b_act2", gigId: "g_active", vendorId: "u_mike", amountCents: 160000, etaMinutes: 25, status: "rejected", createdAt: t(45) },
   );
   payments.push(
-    { id: "p_act_f", gigId: "g_active", payerId: "u_alex", kind: "service_fee", amountCents: 2000, status: "captured", at: t(26) },
+    { id: "p_act_f", gigId: "g_active", payerId: "u_alex", kind: "service_fee", amountCents: SERVICE_FEE_CENTS, status: "captured", at: t(26) },
     { id: "p_act_b", gigId: "g_active", payerId: "u_alex", kind: "bid_amount", amountCents: 150000, status: "authorized", at: t(26) },
   );
   messages.push(
