@@ -40,12 +40,12 @@ const faqsRight = [
   {
     question: "How do I control my fees?",
     answer:
-      "Providers can set their own rates and fees. NEXO® charges a small platform fee of 5% on each transaction, which covers payment processing, insurance, and platform support.",
+      "Providers can set their own rates and fees. NEXO® charges a 12% commission on each completed job, which covers payment processing, insurance, and platform support.",
   },
   {
     question: "How much is the platform fee?",
     answer:
-      "NEXO® charges a flat 5% platform fee on all transactions. There are no monthly subscription fees, no listing fees, and no hidden charges. You only pay when you earn.",
+      "Providers pay a 12% commission on each completed job, and customers pay a flat R30 booking fee per booking. There are no monthly subscription fees, no listing fees, and no hidden charges.",
   },
 ];
 

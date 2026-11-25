@@ -6,11 +6,11 @@ import * as ops from "./ops";
 import { runJob } from "./jobs";
 
 describe("money", () => {
-  it("bid breakdown applies 3% commission and R20 fee", () => {
+  it("bid breakdown applies 12% commission and R30 fee", () => {
     const b = bidBreakdown(150000);
-    expect(b.commissionCents).toBe(4500);
-    expect(b.vendorPayoutCents).toBe(145500);
-    expect(b.requestorTotalCents).toBe(152000);
+    expect(b.commissionCents).toBe(18000);
+    expect(b.vendorPayoutCents).toBe(132000);
+    expect(b.requestorTotalCents).toBe(153000);
   });
   it("bills instant work per 15 min, minimum 1 hour", () => {
     expect(billableMinutes(10)).toBe(60);
@@ -54,8 +54,8 @@ describe("gig flow", () => {
     const before = s.users.find((u) => u.id === "u_bongani")!.walletCents!;
     expect(ops.verifyCompletionOp(s, gig.id, gig.completionOtp!.code).ok).toBe(true);
     expect(gig.status).toBe("completed");
-    expect(gig.settlement!.payoutCents).toBe(55000 - 1650);
-    expect(s.users.find((u) => u.id === "u_bongani")!.walletCents).toBe(before + 53350);
+    expect(gig.settlement!.payoutCents).toBe(55000 - 6600);
+    expect(s.users.find((u) => u.id === "u_bongani")!.walletCents).toBe(before + 48400);
     ops.reviewOp(s, gig.id, 5, "Great");
     expect(gig.review!.rating).toBe(5);
     const r = s.users.find((u) => u.id === gig.requestorId)!;

@@ -42,15 +42,15 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-5 sm:gap-8">
               <div className="flex-col items-center gap-2">
                  <h1 className="text-[28px] font-semibold text-[#0E8A7F]">100%</h1>
-                 <p className="text-[12px] font-medium text-[#4B5563]">Verified Indivisuals</p>
+                 <p className="text-[12px] font-medium text-[#4B5563]">Verified Individuals</p>
               </div>
               <div className="flex-col items-center gap-2">
-                <h1 className="text-[28px] font-semibold text-[#0E8A7F]">R20 </h1>
+                <h1 className="text-[28px] font-semibold text-[#0E8A7F]">R30 </h1>
                 <p className="text-[12px] font-medium text-[#4B5563]">Flat service fee</p>
               </div>
               <div className="flex-col items-center gap-2">
-                <h1 className="text-[28px] font-semibold text-[#0E8A7F]">3% </h1>
-                <p className="text-[12px] font-medium text-[#4B5563]">vendor comission</p>
+                <h1 className="text-[28px] font-semibold text-[#0E8A7F]">12% </h1>
+                <p className="text-[12px] font-medium text-[#4B5563]">Vendor commission</p>
               </div>
             </div>
           </div>

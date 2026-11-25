@@ -36,8 +36,8 @@ Strings are quoted exactly. `’`, `“”`, `—` and `…` are literal Unicode
 **Constants.**
 | Constant | Value |
 |---|---|
-| Service fee | 2000 cents (R20), non-refundable |
-| Vendor commission | 300 bps (3%), shown to vendors only |
+| Service fee | 3000 cents (R30), non-refundable |
+| Vendor commission | 1200 bps (12%), shown to vendors only |
 | Search radius | 30 km |
 | Distance | Haversine, rounded to 0.5 km, minimum 0.5 |
 | OTP | `{ttlSeconds: 600, maxAttempts: 5, maxResends: 3}`, 6-digit codes from `crypto.getRandomValues` |
